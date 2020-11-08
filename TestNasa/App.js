@@ -15,68 +15,29 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from  '@react-navigation/stack';
+import 'react-native-gesture-handler';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
- import {NavigationContiner} from '@react-navigation/native'
- import {createStackNavigator} from '@react-navigation/stack'
- import Home from './app/Home'
- import Details from './app/Details'
- const Stack=createStackNavigator();
+import Home from './app/Screens/Home';
+import List from './app/Screens/List';
+
+const Stack = createStackNavigator();
 const App = () => {
   return (
-   <NavigationContiner>
-     <Stack.Navigator>
-       <Stack.Screen name={'Home'} component={Home}/>
-       <Stack.Screen name={'Details'} component={Details}/>
-
-       </Stack.Navigator>
-     </NavigationContiner>
+      <NavigationContainer>
+         <StatusBar barStyle="dark-content" />
+         <Stack.Navigator>
+           <Stack.Screen name="Home" component={Home} options={{title:'Home'}}/>
+           <Stack.Screen name="List" component={List} options={{title:'List'}}/>
+         </Stack.Navigator>
+      </NavigationContainer>
+     
+   
+   
   );
 };
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+
 
 export default App;
