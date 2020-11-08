@@ -15,10 +15,11 @@ export default class Home extends Component{
         }
     }
 
+    //onchange astroid id
     astroidInput(input){
         this.setState({astroidId:input})
     }
-
+    
     getAstroidId=()=>{
         return fetch('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=OMun98CDkddUWbEV3KQNpLh73ujQNGz6mXofge2m').then((response)=>
           response.json).then((json)=>
